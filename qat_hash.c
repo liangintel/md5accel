@@ -419,6 +419,10 @@ int get_engine() {
 	return -1;
 }
 
+void* get_engine_buffs(int eng_i) {
+	return g_engines[eng_i].pSrcBuffers;
+}
+
 void release_engine(int eng_i) {
 	if(!g_inited)
 		return;
@@ -485,7 +489,7 @@ int init_qat() {
     return status;
 }
 
-int md5_write(int eng_i, const unsigned char* buff, int len) {
+int md5_write(int eng_i, const unsigned char* buff, int len, int cp_mem) {
     int ori_len = len;
 	int length;
 	
@@ -502,7 +506,8 @@ int md5_write(int eng_i, const unsigned char* buff, int len) {
 		offset = eng->len % CONT_PIECE_SIZE;
 		i = eng->len / CONT_PIECE_SIZE;
 		length = (CONT_PIECE_SIZE-offset)>len ? len : (CONT_PIECE_SIZE-offset);
-		memcpy(&eng->pSrcBuffers[i][offset], &buff[ori_len-len], length);
+		if(cp_mem)
+			memcpy(&eng->pSrcBuffers[i][offset], &buff[ori_len-len], length);
 		len -= length;
 	}
 	
@@ -602,6 +607,14 @@ int get_engine_num(){
 
 int get_max_object_size() {
 	return BUFF_SIZE/(1024*1024);
+}
+
+int get_cont_piece_size() {
+	return CONT_PIECE_SIZE;
+}
+
+int get_eng_current_len(int eng_i) {
+	return g_engines[eng_i].len;
 }
 
 static int gHello = 2;
