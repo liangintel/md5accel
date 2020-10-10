@@ -38,6 +38,7 @@ var inflight_engine_num int32 = 0
 
 // The size of an MD5 checksum in bytes.
 const Md5Size = 16
+const Max_engine = 18
 
 func Init_qat_hash() {
 	for {
