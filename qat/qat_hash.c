@@ -23,7 +23,7 @@ static sampleThread gPollingThread;
 static int gPollingCy = 0;
 #endif
 
-#define MAX_ENGINES	54
+#define MAX_ENGINES	18
 #define BUFF_SIZE (128*1024*1024)
 #define CONT_PIECE_SIZE (4*1024*1024)
 #define CONT_PIECE_NUM (BUFF_SIZE/CONT_PIECE_SIZE)

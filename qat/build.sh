@@ -1,4 +1,5 @@
 CUR_DIR=`pwd`
+sudo rm -rf qat1.x
 mkdir qat1.x
 cd qat1.x
 
@@ -28,5 +29,6 @@ make
 echo $MD5DIR
 ls -l $MD5DIR
 cd $CUR_DIR
-cp $MD5DIR/libqat_hash.so .
+sudo cp $MD5DIR/libqat_hash.so /usr/local/lib/
+sudo ldconfig
 
