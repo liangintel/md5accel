@@ -1,12 +1,9 @@
 package md5accel
 
 /*
-#cgo CFLAGS: -I/opt/stack/qat/quickassist/lookaside/access_layer/src/sample_code/functional/sym/qat_hash
-#cgo LDFLAGS:  -lssl -lcrypto -lqat_hash -L/opt/stack/qat/quickassist/lookaside/access_layer/src/sample_code/functional/sym/qat_hash
-#include <stdio.h>
-#include <stdlib.h>
-#include <openssl/md5.h> //may need to install `apt install libssl-dev`
-#include "qat_hash.h"
+#cgo CFLAGS: -I./qat
+#cgo LDFLAGS:  -lssl -lcrypto -lqat_hash -L./qat
+#include "qat/qat_hash.h"
 
 */
 import "C"
@@ -21,7 +18,6 @@ import (
 	
 	golog "log"
 	"sync/atomic"
-//	"runtime/debug"
 
 	humanize "github.com/dustin/go-humanize"
 )
