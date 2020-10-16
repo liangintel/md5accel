@@ -2,7 +2,7 @@ package md5accel
 
 /*
 #cgo CFLAGS: -I./qat
-#cgo LDFLAGS:  -lssl -lcrypto -lqat_hash -L./qat
+#cgo LDFLAGS:  -lssl -lcrypto -Wl,-rpath,'${SRCDIR}/qat/' -lqat_hash -L./qat
 #include "qat/qat_hash.h"
 
 */
