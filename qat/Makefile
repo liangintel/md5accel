@@ -2,6 +2,8 @@ include $(PWD)/../../common.mk
 OUTPUT_NAME=libqat_hash.so
 
 EXTRA_CFLAGS += -fPIC -shared
+EXTRA_CFLAGS += -Wl,-rpath,'$$ORIGIN/'
+
 USER_SOURCE_FILES += qat_hash.c
 
 test:test.c
