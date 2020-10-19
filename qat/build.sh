@@ -9,6 +9,10 @@ wget https://01.org/sites/default/files/downloads/$QAT_TAR_PKG
 
 tar -zxvf $QAT_TAR_PKG
 
+#install dependance (only ubuntu)
+sudo apt update
+sudo apt install pciutils-dev libpci-dev g++ pkg-config libssl-dev
+
 #compile qat library
 export ICP_ROOT=`pwd`
 ./configure
